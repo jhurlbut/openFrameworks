@@ -362,7 +362,7 @@ bool ofFbo::checkGLSupport() {
 	glGetIntegerv(GL_MAX_DRAW_BUFFERS, &_maxDrawBuffers);
 	glGetIntegerv(GL_MAX_SAMPLES, &_maxSamples);
 
-	ofLog(OF_LOG_NOTICE, string("ofFbo::checkGLSupport()\n") +
+	ofLog(OF_LOG_VERBOSE, string("ofFbo::checkGLSupport()\n") +
 		  "maxColorAttachments: " + ofToString(_maxColorAttachments) + "\n" +
 		  "maxDrawBuffers: " + ofToString(_maxDrawBuffers) + "\n" +
 		  "maxSamples: " + ofToString(_maxSamples)
@@ -834,7 +834,7 @@ bool ofFbo::checkStatus() {
 	GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 	switch(status) {
 		case GL_FRAMEBUFFER_COMPLETE:
-			ofLog(OF_LOG_NOTICE, "FRAMEBUFFER_COMPLETE - OK");
+			ofLog(OF_LOG_VERBOSE, "FRAMEBUFFER_COMPLETE - OK");
 			return true;
 
 		case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
