@@ -1,4 +1,3 @@
-
 // Copyright (c) 2012 openFrameworks team
 // openFrameworks is released under the MIT License. See libs/_Licence.txt
 
@@ -10,29 +9,29 @@
 
 @interface QTKitMovieRenderer : NSObject
 {
-	QTMovie * _movie;
-	QTVisualContextRef _visualContext;
+    QTMovie * _movie;
+    QTVisualContextRef _visualContext;
     
-	CVOpenGLTextureCacheRef _textureCache;
-	CVOpenGLTextureRef _latestTextureFrame;
-	CVPixelBufferRef _latestPixelFrame;
+    CVOpenGLTextureCacheRef _textureCache;
+    CVOpenGLTextureRef _latestTextureFrame;
+    CVPixelBufferRef _latestPixelFrame;
     
-	NSSize movieSize;
-	QTTime movieDuration;
-	NSInteger frameCount;
-	double frameStep;
+    NSSize movieSize;
+    QTTime movieDuration;
+    NSInteger frameCount;
+    double frameStep;
     QTTime lastMovieTime;
-	BOOL frameUpdated;
-	BOOL useTexture;
-	BOOL usePixels;
-	BOOL useAlpha;
-	BOOL synchronousSeek;
-	BOOL justSetFrame;
-	BOOL frameIsNew;
-	BOOL hasVideo;
-	BOOL hasAudio;
-	BOOL loadedFirstFrame;
-	NSCondition* synchronousSeekLock;
+    BOOL frameUpdated;
+    BOOL useTexture;
+    BOOL usePixels;
+    BOOL useAlpha;
+    BOOL synchronousSeek;
+    BOOL justSetFrame;
+    BOOL frameIsNew;
+    BOOL hasVideo;
+    BOOL hasAudio;
+    BOOL loadedFirstFrame;
+    NSCondition* synchronousSeekLock;
 }
 
 @property (nonatomic, readonly) NSSize movieSize;
