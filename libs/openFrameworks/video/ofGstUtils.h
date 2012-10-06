@@ -63,7 +63,11 @@ public:
 	virtual GstFlowReturn preroll_cb(GstBuffer * buffer);
 	virtual GstFlowReturn buffer_cb(GstBuffer * buffer);
 	virtual void 		  eos_cb();
+
+	static void startGstMainLoop();
 protected:
+	ofGstAppSink * 		appsink;
+	bool				isStream;
 
 private:
 	void 				gstHandleMessage();
@@ -79,20 +83,10 @@ private:
 
 	GstElement  *		gstSink;
 	GstElement 	*		gstPipeline;
-	ofGstAppSink * 		appsink;
 
-	bool				posChangingPaused;
-	int					pipelineState;
 	float				speed;
 	int64_t				durationNanos;
 	bool				isAppSink;
-	bool				isStream;
-
-	// the gst callbacks need to be friended to be able to call us
-	//friend GstFlowReturn on_new_buffer_from_source (GstAppSink * elt, void * data);
-	//friend GstFlowReturn on_new_preroll_from_source (GstAppSink * elt, void * data);
-	//friend void on_eos_from_source (GstAppSink * elt, void * data);
-
 };
 
 
@@ -137,6 +131,7 @@ protected:
 
 	ofPixels		pixels;				// 24 bit: rgb
 	ofPixels		backPixels;
+	ofPixels		eventPixels;
 private:
 	bool			bIsFrameNew;			// if we are new
 	bool			bHavePixelsChanged;
